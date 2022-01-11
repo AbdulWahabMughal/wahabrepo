@@ -1,0 +1,51 @@
+﻿@using _086_Wahab_MVC.Models
+@model List<Contact>
+
+<form action="/home/Contactform" method="post">
+    <div class="row">
+        <div class="col-md-3">
+            <h1>@ViewData["message"]</h1>
+            <h1>Create Item</h1>
+            <label class="form-text">Name:</label>
+            <input type="text" name="fname" class="form-control" />
+            <label class="form-text">Description:</label>
+            <input type="text" name="Description" class="form-control" />
+            <label class="form-text">Quantity:</label>
+            <input type="number" name="Quantity" class="form-control" />
+            <label class="form-text">Price:</label>
+            <input type="number" name="Price" class="form-control" />
+            <br />
+
+            <input type="submit" class="btn btn-primary" style="width:100%;" />
+        </div>
+        </div>
+
+
+</form>
+<div class="container">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@item.fname</td>
+        <td>@item.Description</td>
+        <td>@item.Quantity</td>
+        <td>@item.Price</td>
+        <td><a href="/home/edit/@item.Id">Edit</a></td>
+        <td><a href="/home/delete/@item.Id">Delete</a></td>
+        <td><a href="/home/View/@item.Id">View</a></td>
+    </tr>
+        }
+    </table>
+</div>
+
